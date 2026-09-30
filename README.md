@@ -93,3 +93,55 @@ npm run build
 ## V10.1 fix
 
 Fixed the CSS module boundary around `.reveal` and moved `theme-toggle.css` to the final import position so its GPU transform rules win over legacy responsive rules.
+
+
+## V11 — Ask John Portfolio Chatbot
+
+Added a local portfolio assistant with no external API key or backend.
+
+### Files
+
+```text
+src/
+├── components/
+│   └── chatbot/
+│       ├── Chatbot.jsx
+│       ├── ChatButton.jsx
+│       ├── ChatMessage.jsx
+│       ├── QuickQuestions.jsx
+│       └── chatbotEngine.js
+│
+├── data/
+│   └── personal.js
+│
+└── styles/
+    └── chatbot.css
+```
+
+### What it can answer
+
+- About John
+- Hobbies
+- Java / first programming language
+- Alexandria Online Library
+- C# / OOP
+- React + Laravel
+- CuyoTech SSIS
+- Walang Brownout
+- Skills and tools
+- Databases
+- QA / testing / documentation
+- Deployment / cloud tools
+- AI tools
+- Education
+- Contact methods
+
+It uses the existing modular portfolio data automatically, so updating the normal skill/project/education files also updates many chatbot answers.
+
+### Edit personal information
+
+Edit:
+
+`src/data/personal.js`
+
+Only put information there that you are comfortable showing publicly.

@@ -11,6 +11,7 @@ import QASection from './components/QASection'
 import Education from './components/Education'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import Chatbot from './components/chatbot/Chatbot'
 
 export default function App() {
   const [theme, setTheme] = useState(() => {
@@ -84,6 +85,7 @@ export default function App() {
       </main>
 
       <Footer />
+      <Chatbot />
     </>
   )
 }
