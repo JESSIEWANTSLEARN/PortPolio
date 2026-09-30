@@ -2,17 +2,22 @@ export const profile = {
   name: "John Jessie R. Palarao",
   headline:
     "Computer Science Student | Full-Stack Developer | QA & Documentation",
+
   shortBio:
     "I build practical software and web applications using React, Laravel, MySQL, REST APIs, C#, Java, and Unity Engine. I also work with software testing, QA, and technical documentation.",
+
   location: "Cabuyao, Laguna, Philippines",
+
   githubUsername: "JESSIEWANTSLEARN",
   githubUrl: "https://github.com/JESSIEWANTSLEARN",
-  facebookUrl: "https://web.facebook.com/johnjessie.palarao",
-  age: 21,
-  Phone: "+63 917 123 4567",
-  profileImage: "/profile-placeholder.svg",
 
-  // IMPORTANT: Replace this with your real Gmail before deployment.
+  facebookUrl: "https://web.facebook.com/johnjessie.palarao",
+
+  age: 21,
+  phone: "+63 917 123 4567",
+
+  profileImage: "/profile.jpg",
+
   email: "palaraojessie19@gmail.com",
 };
 
