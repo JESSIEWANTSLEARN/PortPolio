@@ -1,0 +1,175 @@
+/* =========================================================
+   V9 POLISH
+   - Full-photo fitting
+   - Gmail browser compose
+   - Responsive workflow strip
+   - Expanded technology ecosystem
+   ========================================================= */
+
+.identity-frame {
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 38%, rgba(255, 51, 79, .12), transparent 56%),
+    var(--surface);
+}
+
+.identity-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain !important;
+  object-position: center center !important;
+  padding: 0;
+  background: var(--surface);
+}
+
+.intro-profile-frame {
+  display: grid;
+  place-items: center;
+}
+
+.intro-profile-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain !important;
+  object-position: center center !important;
+  background: #12070b;
+}
+
+.impact-inner {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.impact-word {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.impact-word strong {
+  max-width: 100%;
+  font-size: clamp(1.65rem, 2.8vw, 3.15rem);
+  line-height: .92;
+  letter-spacing: -.055em;
+  white-space: nowrap;
+}
+
+.section-heading {
+  min-width: 0;
+}
+
+.section-heading > div {
+  min-width: 0;
+}
+
+.section-heading h2 {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.skills-summary {
+  display: grid;
+  grid-template-columns: 130px 1fr 160px;
+  gap: 24px;
+  align-items: center;
+  margin-bottom: 24px;
+  padding: 22px 26px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background:
+    linear-gradient(145deg,
+      color-mix(in srgb, var(--surface) 96%, transparent),
+      color-mix(in srgb, var(--surface-2) 96%, transparent));
+  box-shadow: var(--shadow);
+}
+
+.skills-summary > div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.skills-summary > div:last-child {
+  text-align: right;
+}
+
+.skills-summary strong {
+  color: var(--red);
+  font: 900 2.2rem/1 Consolas, monospace;
+}
+
+.skills-summary span {
+  color: var(--muted);
+  font: .65rem Consolas, monospace;
+  letter-spacing: .12em;
+}
+
+.skills-summary p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.skills-grid {
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)) !important;
+}
+
+.skill-card {
+  min-width: 0;
+}
+
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.copy-button {
+  cursor: pointer;
+}
+
+.contact-card h3 {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 900px) {
+  .impact-inner {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .impact-word strong {
+    font-size: clamp(2rem, 7vw, 3.4rem);
+  }
+
+  .skills-summary {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+
+  .skills-summary > div:last-child {
+    text-align: left;
+  }
+}
+
+@media (max-width: 520px) {
+  .impact-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .impact-word {
+    min-height: 125px;
+  }
+
+  .impact-word strong {
+    font-size: clamp(2.25rem, 13vw, 3.4rem);
+  }
+
+  .contact-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .contact-actions .button {
+    width: 100%;
+  }
+}

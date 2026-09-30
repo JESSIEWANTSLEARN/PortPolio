@@ -1,40 +1,40 @@
-import { profile } from '../data/portfolioData'
+import { profile } from '../data'
 
-export default function Navbar({ theme, toggleTheme }) {
-  const links = ['about', 'projects', 'skills', 'qa', 'education', 'contact']
-  const isLight = theme === 'light'
+export default function Navbar({ theme, onToggleTheme }) {
+  const links = [
+    ['about', 'About'],
+    ['journey', 'Journey'],
+    ['projects', 'Projects'],
+    ['skills', 'Skills'],
+    ['qa', 'QA'],
+    ['education', 'Education'],
+    ['contact', 'Contact'],
+  ]
 
   return (
-    <header className="nav-wrap">
-      <nav className="nav container">
-        <a className="brand" href="#top" aria-label="Back to top">
-          <span className="brand-mark">&lt;JJ/&gt;</span>
-          <span className="brand-name">{profile.name.split(' ')[0]}</span>
+    <header className="navbar">
+      <nav className="container navbar-inner">
+        <a href="#top" className="brand" aria-label="Back to top">
+          <span>&lt;JJ/&gt;</span>
+          <strong>{profile.shortName}</strong>
         </a>
 
-        <div className="nav-right">
+        <div className="nav-actions">
           <div className="nav-links">
-            {links.map((link) => (
-              <a key={link} href={`#${link}`}>
-                {link === 'qa'
-                  ? 'QA'
-                  : link.charAt(0).toUpperCase() + link.slice(1)}
-              </a>
+            {links.map(([id, label]) => (
+              <a key={id} href={`#${id}`}>{label}</a>
             ))}
           </div>
 
           <button
-            className={`theme-toggle ${isLight ? 'is-light' : 'is-dark'}`}
+            className={`theme-switch ${theme === 'light' ? 'light' : 'dark'}`}
+            onClick={onToggleTheme}
             type="button"
-            onClick={toggleTheme}
-            aria-label={`Switch to ${isLight ? 'dark' : 'light'} mode`}
-            title={`Switch to ${isLight ? 'dark' : 'light'} mode`}
+            aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
           >
-            <span className="theme-toggle-icon sun" aria-hidden="true">☀</span>
-            <span className="theme-toggle-icon moon" aria-hidden="true">☾</span>
-            <span className="theme-toggle-knob" aria-hidden="true">
-              {isLight ? '☀' : '☾'}
-            </span>
+            <span className="switch-sun">☀</span>
+            <span className="switch-moon">☾</span>
+            <span className="switch-knob">{theme === 'light' ? '☀' : '☾'}</span>
           </button>
         </div>
       </nav>

@@ -1,0 +1,116 @@
+:root {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #f7f1f3;
+  background: #090507;
+  --bg: #090507;
+  --surface: #13090d;
+  --surface-2: #1a0c12;
+  --surface-3: #230f17;
+  --text: #f7f1f3;
+  --muted: #b8a3a8;
+  --faint: #806c72;
+  --line: rgba(255, 77, 103, .18);
+  --line-soft: rgba(255, 255, 255, .08);
+  --red: #ff334f;
+  --red-2: #b91838;
+  --red-soft: rgba(255, 51, 79, .10);
+  --shadow: 0 28px 90px rgba(0,0,0,.34);
+  color-scheme: dark;
+}
+
+:root[data-theme="light"] {
+  color: #2a151a;
+  background: #f8f1f3;
+  --bg: #f8f1f3;
+  --surface: #fffafa;
+  --surface-2: #f6e9ec;
+  --surface-3: #f2e1e5;
+  --text: #2a151a;
+  --muted: #735a61;
+  --faint: #9c858b;
+  --line: rgba(176, 24, 54, .16);
+  --line-soft: rgba(64, 22, 31, .09);
+  --red: #c9183a;
+  --red-2: #85132a;
+  --red-soft: rgba(201, 24, 58, .08);
+  --shadow: 0 24px 70px rgba(82, 27, 39, .10);
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--bg);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 14% 12%, rgba(255, 51, 79, .10), transparent 32%),
+    radial-gradient(circle at 84% 20%, rgba(140, 18, 43, .12), transparent 31%),
+    var(--bg);
+  transition: background .35s ease, color .35s ease;
+}
+
+button, a {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  color: inherit;
+}
+
+::selection {
+  background: var(--red);
+  color: #fff;
+}
+
+.page-grid {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -3;
+  opacity: .34;
+  background-image:
+    linear-gradient(var(--line-soft) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+  background-size: 54px 54px;
+  mask-image: linear-gradient(to bottom, black, transparent 90%);
+}
+
+.cursor-glow {
+  position: fixed;
+  left: var(--mouse-x, 50vw);
+  top: var(--mouse-y, 50vh);
+  width: 430px;
+  height: 430px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -2;
+  background: radial-gradient(circle, rgba(255, 51, 79, .08), transparent 68%);
+}
+
+.container {
+  width: min(1180px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+.section {
+  padding: 110px 0;
+}
+
+.section-anchor {
+  scroll-margin-top: 96px;
+}

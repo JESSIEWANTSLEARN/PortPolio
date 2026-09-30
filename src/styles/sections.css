@@ -1,0 +1,121 @@
+.section-heading {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 42px;
+}
+
+.section-heading > span {
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  color: var(--red);
+  background: var(--red-soft);
+  font: .8rem Consolas, monospace;
+}
+
+.section-heading p {
+  margin: 0 0 5px;
+  color: var(--red);
+  font: 800 .74rem Consolas, monospace;
+  letter-spacing: .16em;
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-size: clamp(2.5rem, 5vw, 4.4rem);
+  line-height: .96;
+  letter-spacing: -.055em;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.35fr .85fr;
+  gap: 24px;
+}
+
+.about-story,
+.fact-card,
+.project-card,
+.skill-card,
+.qa-card,
+.education-card,
+.contact-card {
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--surface) 96%, transparent), color-mix(in srgb, var(--surface-2) 96%, transparent));
+  box-shadow: var(--shadow);
+}
+
+.about-story {
+  border-radius: 26px;
+  padding: 34px;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.9;
+}
+
+.about-story strong {
+  color: var(--text);
+}
+
+.fact-stack {
+  display: grid;
+  gap: 14px;
+}
+
+.fact-card {
+  border-radius: 22px;
+  padding: 22px 24px;
+}
+
+.fact-card span,
+.contact-card > span {
+  color: var(--red);
+  font: .72rem Consolas, monospace;
+  letter-spacing: .12em;
+}
+
+.fact-card strong {
+  display: block;
+  margin-top: 7px;
+  color: var(--text);
+}
+
+.impact-strip {
+  padding: 32px 0 80px;
+  overflow: hidden;
+}
+
+.impact-inner {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  overflow: hidden;
+  background: var(--line);
+}
+
+.impact-word {
+  min-height: 200px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--surface);
+}
+
+.impact-word span {
+  color: var(--red);
+  font: .72rem Consolas, monospace;
+}
+
+.impact-word strong {
+  font-size: clamp(2.4rem, 4.4vw, 4.8rem);
+  letter-spacing: -.06em;
+}

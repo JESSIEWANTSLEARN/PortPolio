@@ -1,27 +1,26 @@
-import { education } from '../data/portfolioData'
+import { education } from '../data'
 
 export default function Education() {
   return (
-    <section className="section" id="education">
+    <section className="section section-anchor" id="education">
       <div className="container">
         <div className="section-heading reveal">
-          <span className="section-number">05</span>
+          <span>06</span>
           <div>
-            <p className="kicker">MY JOURNEY</p>
-            <h2>Education</h2>
+            <p>EDUCATION</p>
+            <h2>Academic Timeline</h2>
           </div>
         </div>
 
-        <div className="timeline">
+        <div className="education-timeline">
           {education.map((item, index) => (
-            <article className="timeline-item reveal" key={`${item.school}-${index}`}>
+            <article className="education-card reveal" key={item.school}>
               <div className="timeline-dot" />
-              <div className="timeline-card">
-                <p className="timeline-place">{item.place}</p>
-                <h3>{item.school}</h3>
-                <strong>{item.program}</strong>
-                <p>{item.detail}</p>
-              </div>
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              <h3>{item.school}</h3>
+              <h4>{item.program}</h4>
+              <p>{item.detail}</p>
+              <small>{item.place}</small>
             </article>
           ))}
         </div>

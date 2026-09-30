@@ -1,0 +1,75 @@
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.project-card {
+  min-height: 300px;
+  border-radius: 24px;
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-number,
+.skill-index {
+  color: color-mix(in srgb, var(--red) 46%, transparent);
+  font: 900 2.8rem/1 Consolas, monospace;
+}
+
+.project-card > p:first-of-type {
+  margin: 22px 0 8px;
+  color: var(--red);
+  font: .7rem Consolas, monospace;
+  letter-spacing: .12em;
+}
+
+.project-card h3 {
+  margin: 0;
+  font-size: 1.55rem;
+}
+
+.project-card-copy {
+  color: var(--muted);
+  line-height: 1.7;
+  flex: 1;
+}
+
+.text-link {
+  color: var(--red);
+  text-decoration: none;
+  font-weight: 800;
+}
+
+.academic-label {
+  width: fit-content;
+  padding: 7px 9px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  font: .65rem Consolas, monospace;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.skill-card {
+  min-height: 230px;
+  border-radius: 22px;
+  padding: 24px;
+}
+
+.skill-card h3 {
+  margin: 18px 0 16px;
+  font-size: 1.18rem;
+}
+
+.skill-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}

@@ -1,4 +1,4 @@
-import { profile } from '../data/portfolioData'
+import { profile } from '../data'
 
 export default function Footer() {
   return (
@@ -8,7 +8,7 @@ export default function Footer() {
           <strong>{profile.name}</strong>
           <p>Computer Science Student • Developer • QA • Documentation</p>
         </div>
-        <p>Built with React + Vite</p>
+        <span>Built with React + Vite</span>
       </div>
     </footer>
   )

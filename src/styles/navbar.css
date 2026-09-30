@@ -1,0 +1,105 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid var(--line);
+  background: color-mix(in srgb, var(--bg) 87%, transparent);
+  backdrop-filter: blur(18px);
+}
+
+.navbar-inner {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.brand span {
+  color: var(--red);
+  font: 800 .92rem/1 Consolas, monospace;
+}
+
+.brand strong {
+  font-size: 1rem;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: .9rem;
+  transition: color .2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--red);
+}
+
+.theme-switch {
+  position: relative;
+  width: 82px;
+  height: 40px;
+  flex: 0 0 auto;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface-2);
+  cursor: pointer;
+  box-shadow: inset 0 0 14px rgba(0,0,0,.14);
+}
+
+.theme-switch > span {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.switch-sun {
+  left: 12px;
+  color: var(--red);
+}
+
+.switch-moon {
+  right: 12px;
+  color: var(--muted);
+}
+
+.switch-knob {
+  left: 44px;
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #5b1624;
+  background: #fff5f6;
+  box-shadow: 0 5px 14px rgba(0,0,0,.22);
+  transition: left .3s ease, background .3s ease, color .3s ease;
+}
+
+.theme-switch.light .switch-knob {
+  left: 6px;
+  color: #fff;
+  background: linear-gradient(145deg, var(--red), var(--red-2));
+}

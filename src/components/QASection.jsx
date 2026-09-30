@@ -1,43 +1,32 @@
 export default function QASection() {
-  const workflow = [
-    ['01', 'TEST', 'Validate features and REST API behavior using tools such as Postman.'],
-    ['02', 'DOCUMENT', 'Record test results, screenshots, findings, and reproducible steps.'],
-    ['03', 'REPORT', 'Identify issues clearly and prepare concise bug or test documentation.'],
-    ['04', 'VERIFY', 'Retest changes and confirm that the expected behavior works correctly.'],
+  const steps = [
+    ['01', 'BUILD', 'Create or integrate the feature.'],
+    ['02', 'TEST', 'Check behavior, routes, APIs, and UI states.'],
+    ['03', 'FIND ISSUE', 'Identify bugs, inconsistent behavior, or failed cases.'],
+    ['04', 'DOCUMENT', 'Record findings, evidence, and expected behavior.'],
+    ['05', 'FIX', 'Apply or coordinate the correction.'],
+    ['06', 'RETEST', 'Verify that the issue is resolved.'],
   ]
 
   return (
-    <section className="section" id="qa">
+    <section className="section qa-section section-anchor" id="qa">
       <div className="container">
         <div className="section-heading reveal">
-          <span className="section-number">04</span>
+          <span>05</span>
           <div>
-            <p className="kicker">BEYOND CODING</p>
-            <h2>QA & Documentation</h2>
+            <p>QUALITY ASSURANCE</p>
+            <h2>Test. Document. Verify.</h2>
           </div>
         </div>
 
-        <div className="qa-layout">
-          <div className="glass-card reveal">
-            <p>
-              I also work with software testing and project documentation. My experience
-              includes REST API testing with Postman, documenting results, capturing
-              testing evidence, identifying issues, preparing findings and suggestions,
-              and organizing technical/system documentation for academic projects.
-            </p>
-          </div>
-
-          <div className="qa-flow">
-            {workflow.map(([num, title, text]) => (
-              <article className="qa-step reveal" key={num}>
-                <span>{num}</span>
-                <div>
-                  <h3>{title}</h3>
-                  <p>{text}</p>
-                </div>
-              </article>
-            ))}
-          </div>
+        <div className="qa-flow">
+          {steps.map(([number, title, description]) => (
+            <article className="qa-card reveal" key={title}>
+              <span>{number}</span>
+              <h3>{title}</h3>
+              <p>{description}</p>
+            </article>
+          ))}
         </div>
       </div>
     </section>

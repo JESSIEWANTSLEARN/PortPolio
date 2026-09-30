@@ -1,147 +1,95 @@
-# John Jessie R. Palarao - Digital Portfolio
+# John Jessie Portfolio V10 — Modular Structure
 
-Ready-to-run React + Vite portfolio.
+This version keeps the V9 design/content but reorganizes the project so future edits are easier.
 
-## 1. Install
+## Main structure
 
-Open PowerShell inside this folder:
-
-```powershell
-npm install
+```text
+src/
+├── App.jsx
+├── main.jsx
+│
+├── components/
+│   ├── Intro.jsx
+│   ├── Navbar.jsx
+│   ├── Hero.jsx
+│   ├── About.jsx
+│   ├── ImpactStrip.jsx
+│   ├── Journey.jsx
+│   ├── JourneyVisual.jsx
+│   ├── Projects.jsx
+│   ├── Skills.jsx
+│   ├── QASection.jsx
+│   ├── Education.jsx
+│   ├── Contact.jsx
+│   └── Footer.jsx
+│
+├── data/
+│   ├── index.js
+│   ├── profile.js
+│   ├── journey.js
+│   ├── projects.js
+│   ├── skills.js
+│   └── education.js
+│
+└── styles/
+    ├── index.css
+    ├── theme.css
+    ├── navbar.css
+    ├── theme-toggle.css
+    ├── hero.css
+    ├── sections.css
+    ├── journey.css
+    ├── projects-skills.css
+    ├── qa-education-contact.css
+    ├── effects-responsive.css
+    ├── intro.css
+    └── polish.css
 ```
 
-## 2. Run locally
+## Where to edit common things
+
+### Add/remove skills
+`src/data/skills.js`
+
+### Change your profile/contact information
+`src/data/profile.js`
+
+### Change Java → Alexandria → C# → React/Laravel → SSIS → Walang Brownout
+`src/data/journey.js`
+
+### Change smaller project cards
+`src/data/projects.js`
+
+### Change school information
+`src/data/education.js`
+
+### Change only the sun/moon toggle animation
+`src/styles/theme-toggle.css`
+
+### Change cinematic intro animation
+`src/styles/intro.css` and `src/components/Intro.jsx`
+
+### Change Technology Ecosystem design
+`src/styles/projects-skills.css`, `src/styles/polish.css`, and `src/components/Skills.jsx`
+
+### Change contact/Gmail area
+`src/components/Contact.jsx` and `src/styles/qa-education-contact.css`
+
+## Run
 
 ```powershell
+cd C:\Users\admin\PreparedGithub
+npm install
 npm run dev
 ```
 
-Open the URL Vite prints, usually:
-
-```text
-http://localhost:5173/
-```
-
-## 3. Edit your personal information
-
-Open:
-
-```text
-src/data/portfolioData.js
-```
-
-At minimum, replace:
-
-```js
-email: 'your.email@gmail.com'
-```
-
-with your real Gmail address.
-
-Also replace the placeholder Senior High School and Junior High School names.
-
-## 4. Build test
-
-Before pushing to GitHub:
+## Production test
 
 ```powershell
 npm run build
 ```
 
-If the build succeeds, the project is ready for Vercel.
+## V10.1 fix
 
-## 5. Push to GitHub
-
-From the repository root:
-
-```powershell
-git add .
-git commit -m "Create animated digital portfolio"
-git push origin main
-```
-
-## 6. Deploy to Vercel
-
-- Import your `PortPolio` GitHub repository.
-- Framework preset: **Vite**
-- Root Directory:
-  - Use `./` if this project's `package.json` is directly in the repo root.
-  - Use `frontend` only if these files are inside a `frontend` subfolder.
-- Click **Deploy**.
-
-## Featured Project
-
-Walang Brownout live deployment:
-https://unpaiddevfrontend.onrender.com/
-
-
-## Add your real profile photo
-
-The portfolio already has a digital portrait frame showing:
-
-- John Jessie R. Palarao
-- Age 21
-- Computer Science
-- Full-Stack Developer
-- QA & Documentation
-- Unity Engine
-- UI / Design
-
-To use your own face:
-
-1. Put your photo inside the `public` folder.
-2. Recommended filename: `profile.jpg`
-3. Open `src/data/portfolioData.js`
-4. Change:
-
-```js
-profileImage: '/profile-placeholder.svg',
-```
-
-to:
-
-```js
-profileImage: '/profile.jpg',
-```
-
-A square or portrait photo works best.
-
-
-## Project links included in this version
-
-- Walang Brownout — live Render deployment + frontend/backend repositories
-- Alexandria Online Library — GitHub repository
-- CCS112 Task Manager — GitHub repository
-- C# OOP Portfolio — user-provided GitHub repository link
-- Facebook contact directory link
-
-## Animation upgrade
-
-The project deck now uses the same style of navigation animation used in Walang Brownout:
-
-- forward: current project slides left while the next enters from the right
-- backward: the direction reverses
-- blue/navy wipe overlay during navigation
-- subtle fade, glow, hover scale, orbiting project visualization
-- automatic project slide every 6.5 seconds, paused on hover
-- left/right arrow-key navigation
-- animated tech marquee and mouse-follow glow
-
-
-## V5 update
-
-- Fixed the project-deck overlap by using only one project content layer.
-- Project data changes only while an opaque transition wipe covers the card.
-- Changed the website from cyan/blue to a dark crimson/red theme.
-- Project navigation now uses a red digital wipe for next/previous actions.
-
-
-## V6 update
-
-Added a Light / Dark mode toggle inspired by the sun/moon switch reference.
-
-- Toggle is placed in the fixed navigation bar.
-- Dark mode keeps the crimson/red cyber theme.
-- Light mode changes the whole portfolio to a bright red-accented theme.
-- Theme preference is saved in browser localStorage.
-- The switch uses an animated sliding circular knob.
+Fixed the CSS module boundary around `.reveal` and moved `theme-toggle.css` to the final import position so its GPU transform rules win over legacy responsive rules.

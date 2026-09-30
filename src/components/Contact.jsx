@@ -1,63 +1,75 @@
-import { profile } from '../data/portfolioData'
+import { useState } from 'react'
+import { profile } from '../data'
 
 export default function Contact() {
-  const mailSubject = encodeURIComponent('Portfolio Inquiry')
-  const mailto = `mailto:${profile.email}?subject=${mailSubject}`
+  const [copied, setCopied] = useState(false)
+
+  const gmailCompose =
+    `https://mail.google.com/mail/?view=cm&fs=1` +
+    `&to=${encodeURIComponent(profile.email)}` +
+    `&su=${encodeURIComponent('Portfolio Inquiry')}`
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(profile.email)
+      setCopied(true)
+      window.setTimeout(() => setCopied(false), 1600)
+    } catch {
+      // Clipboard access may be blocked in some browsers.
+    }
+  }
 
   return (
-    <section className="section contact-section" id="contact">
+    <section className="section contact-section section-anchor" id="contact">
       <div className="container">
         <div className="section-heading reveal">
-          <span className="section-number">06</span>
+          <span>07</span>
           <div>
-            <p className="kicker">LET'S CONNECT</p>
+            <p>LET’S CONNECT</p>
             <h2>Contact Directory</h2>
           </div>
         </div>
 
         <div className="contact-grid">
           <article className="contact-card reveal">
-            <span className="contact-icon">@</span>
-            <p>GMAIL</p>
+            <div className="contact-icon">@</div>
+            <span>GMAIL</span>
             <h3>{profile.email}</h3>
-            <a className="button primary" href={mailto}>
-              Message Me
-            </a>
+
+            <div className="contact-actions">
+              <a
+                className="button primary"
+                href={gmailCompose}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Open Gmail ↗
+              </a>
+
+              <button className="button secondary copy-button" type="button" onClick={copyEmail}>
+                {copied ? 'Copied ✓' : 'Copy Email'}
+              </button>
+            </div>
           </article>
 
           <article className="contact-card reveal">
-            <span className="contact-icon">&lt;/&gt;</span>
-            <p>GITHUB</p>
+            <div className="contact-icon">&lt;/&gt;</div>
+            <span>GITHUB</span>
             <h3>{profile.githubUsername}</h3>
-            <a
-              className="button ghost"
-              href={profile.githubUrl}
-              target="_blank"
-              rel="noreferrer"
-            >
+            <a className="button secondary" href={profile.githubUrl} target="_blank" rel="noreferrer">
               View Profile ↗
             </a>
           </article>
 
           <article className="contact-card reveal">
-            <span className="contact-icon">f</span>
-            <p>FACEBOOK</p>
-            <h3>John Jessie Palarao</h3>
-            <a
-              className="button ghost"
-              href={profile.facebookUrl}
-              target="_blank"
-              rel="noreferrer"
-            >
+            <div className="contact-icon">f</div>
+            <span>FACEBOOK</span>
+            <h3>{profile.shortName}</h3>
+            <a className="button secondary" href={profile.facebookUrl} target="_blank" rel="noreferrer">
               Open Facebook ↗
             </a>
           </article>
         </div>
-
-        <p className="contact-note reveal">
-          Before deploying, replace <strong>your.email@gmail.com</strong> in
-          <code> src/data/portfolioData.js </code> with your real Gmail address.
-        </p>
       </div>
     </section>
   )

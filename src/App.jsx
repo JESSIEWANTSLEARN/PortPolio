@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
+import Intro from './components/Intro'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
-import FeaturedProject from './components/FeaturedProject'
+import ImpactStrip from './components/ImpactStrip'
+import Journey from './components/Journey'
 import Projects from './components/Projects'
 import Skills from './components/Skills'
 import QASection from './components/QASection'
@@ -12,73 +14,68 @@ import Footer from './components/Footer'
 
 export default function App() {
   const [theme, setTheme] = useState(() => {
-    const savedTheme = localStorage.getItem('portfolio-theme')
-    return savedTheme === 'light' ? 'light' : 'dark'
+    const saved = localStorage.getItem('jj-theme')
+    return saved === 'light' ? 'light' : 'dark'
   })
+
+  const [showIntro, setShowIntro] = useState(true)
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme
-    localStorage.setItem('portfolio-theme', theme)
+    localStorage.setItem('jj-theme', theme)
   }, [theme])
 
   useEffect(() => {
-    const handlePointer = (event) => {
-      document.documentElement.style.setProperty('--mouse-x', `${event.clientX}px`)
-      document.documentElement.style.setProperty('--mouse-y', `${event.clientY}px`)
+    document.body.classList.toggle('intro-open', showIntro)
+
+    if (!showIntro) {
+      window.scrollTo({ top: 0, behavior: 'instant' })
     }
 
-    window.addEventListener('pointermove', handlePointer)
-    return () => window.removeEventListener('pointermove', handlePointer)
-  }, [])
+    return () => document.body.classList.remove('intro-open')
+  }, [showIntro])
 
   useEffect(() => {
-    const elements = document.querySelectorAll('.reveal')
-
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible')
-            observer.unobserve(entry.target)
-          }
+          if (entry.isIntersecting) entry.target.classList.add('visible')
         })
       },
       { threshold: 0.12 },
     )
 
-    elements.forEach((element) => observer.observe(element))
-
+    document.querySelectorAll('.reveal').forEach((element) => observer.observe(element))
     return () => observer.disconnect()
-  }, [])
+  }, [showIntro])
 
-  const toggleTheme = () => {
-    setTheme((current) => (current === 'dark' ? 'light' : 'dark'))
-  }
+  useEffect(() => {
+    const onPointerMove = (event) => {
+      document.documentElement.style.setProperty('--mouse-x', `${event.clientX}px`)
+      document.documentElement.style.setProperty('--mouse-y', `${event.clientY}px`)
+    }
+
+    window.addEventListener('pointermove', onPointerMove)
+    return () => window.removeEventListener('pointermove', onPointerMove)
+  }, [])
 
   return (
     <>
-      <div className="page-grid" />
-      <div className="cursor-aura" aria-hidden="true" />
-      <Navbar theme={theme} toggleTheme={toggleTheme} />
+      {showIntro && <Intro onComplete={() => setShowIntro(false)} />}
+
+      <div className="page-grid" aria-hidden="true" />
+      <div className="cursor-glow" aria-hidden="true" />
+
+      <Navbar
+        theme={theme}
+        onToggleTheme={() => setTheme((current) => (current === 'dark' ? 'light' : 'dark'))}
+      />
 
       <main>
         <Hero />
-
-        <div className="tech-marquee" aria-hidden="true">
-          <div className="tech-marquee-track">
-            <span>REACT</span><i>◆</i><span>LARAVEL</span><i>◆</i>
-            <span>MYSQL</span><i>◆</i><span>REST API</span><i>◆</i>
-            <span>QA</span><i>◆</i><span>FIGMA</span><i>◆</i>
-            <span>UNITY</span><i>◆</i><span>C#</span><i>◆</i>
-            <span>REACT</span><i>◆</i><span>LARAVEL</span><i>◆</i>
-            <span>MYSQL</span><i>◆</i><span>REST API</span><i>◆</i>
-            <span>QA</span><i>◆</i><span>FIGMA</span><i>◆</i>
-            <span>UNITY</span><i>◆</i><span>C#</span><i>◆</i>
-          </div>
-        </div>
-
         <About />
-        <FeaturedProject />
+        <ImpactStrip />
+        <Journey />
         <Projects />
         <Skills />
         <QASection />

@@ -1,0 +1,144 @@
+.qa-section {
+  position: relative;
+}
+
+.qa-flow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.qa-card {
+  min-height: 220px;
+  border-radius: 22px;
+  padding: 26px;
+}
+
+.qa-card > span {
+  color: var(--red);
+  font: .74rem Consolas, monospace;
+}
+
+.qa-card h3 {
+  margin: 34px 0 8px;
+  font-size: 1.5rem;
+}
+
+.qa-card p {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.education-timeline {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.education-timeline::before {
+  content: "";
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  top: 19px;
+  height: 1px;
+  background: var(--line);
+}
+
+.education-card {
+  position: relative;
+  border-radius: 22px;
+  padding: 42px 24px 24px;
+}
+
+.timeline-dot {
+  position: absolute;
+  top: 13px;
+  left: 24px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--red);
+  box-shadow: 0 0 18px rgba(255,51,79,.45);
+}
+
+.education-card > span {
+  color: var(--red);
+  font: .72rem Consolas, monospace;
+}
+
+.education-card h3 {
+  margin: 20px 0 6px;
+}
+
+.education-card h4 {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.education-card p {
+  color: var(--muted);
+}
+
+.education-card small {
+  color: var(--faint);
+}
+
+.contact-section {
+  padding-bottom: 90px;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.contact-card {
+  min-height: 250px;
+  border-radius: 24px;
+  padding: 28px;
+}
+
+.contact-icon {
+  width: 50px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 24px;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  color: var(--red);
+  background: var(--red-soft);
+  font: 800 1rem Consolas, monospace;
+}
+
+.contact-card h3 {
+  margin: 10px 0 22px;
+  word-break: break-word;
+}
+
+.footer {
+  border-top: 1px solid var(--line);
+  background: color-mix(in srgb, var(--surface) 72%, transparent);
+}
+
+.footer-inner {
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.footer p {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
+.footer span {
+  color: var(--muted);
+  font-size: .82rem;
+}
