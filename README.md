@@ -126,3 +126,22 @@ The project deck now uses the same style of navigation animation used in Walang 
 - automatic project slide every 6.5 seconds, paused on hover
 - left/right arrow-key navigation
 - animated tech marquee and mouse-follow glow
+
+
+## V5 update
+
+- Fixed the project-deck overlap by using only one project content layer.
+- Project data changes only while an opaque transition wipe covers the card.
+- Changed the website from cyan/blue to a dark crimson/red theme.
+- Project navigation now uses a red digital wipe for next/previous actions.
+
+
+## V6 update
+
+Added a Light / Dark mode toggle inspired by the sun/moon switch reference.
+
+- Toggle is placed in the fixed navigation bar.
+- Dark mode keeps the crimson/red cyber theme.
+- Light mode changes the whole portfolio to a bright red-accented theme.
+- Theme preference is saved in browser localStorage.
+- The switch uses an animated sliding circular knob.

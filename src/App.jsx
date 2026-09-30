@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -11,6 +11,16 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 
 export default function App() {
+  const [theme, setTheme] = useState(() => {
+    const savedTheme = localStorage.getItem('portfolio-theme')
+    return savedTheme === 'light' ? 'light' : 'dark'
+  })
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme
+    localStorage.setItem('portfolio-theme', theme)
+  }, [theme])
+
   useEffect(() => {
     const handlePointer = (event) => {
       document.documentElement.style.setProperty('--mouse-x', `${event.clientX}px`)
@@ -41,13 +51,19 @@ export default function App() {
     return () => observer.disconnect()
   }, [])
 
+  const toggleTheme = () => {
+    setTheme((current) => (current === 'dark' ? 'light' : 'dark'))
+  }
+
   return (
     <>
       <div className="page-grid" />
       <div className="cursor-aura" aria-hidden="true" />
-      <Navbar />
+      <Navbar theme={theme} toggleTheme={toggleTheme} />
+
       <main>
         <Hero />
+
         <div className="tech-marquee" aria-hidden="true">
           <div className="tech-marquee-track">
             <span>REACT</span><i>◆</i><span>LARAVEL</span><i>◆</i>
@@ -60,6 +76,7 @@ export default function App() {
             <span>UNITY</span><i>◆</i><span>C#</span><i>◆</i>
           </div>
         </div>
+
         <About />
         <FeaturedProject />
         <Projects />
@@ -68,6 +85,7 @@ export default function App() {
         <Education />
         <Contact />
       </main>
+
       <Footer />
     </>
   )
