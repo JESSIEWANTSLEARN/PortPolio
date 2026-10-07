@@ -344,3 +344,32 @@
     transition: none;
   }
 }
+
+/* =========================================================
+   V12 DUAL CHAT POSITIONING
+   Local Ask John = bottom-left
+   Chatbase AI = bottom-right
+   ========================================================= */
+
+.chat-launcher {
+  left: 24px !important;
+  right: auto !important;
+}
+
+.chat-panel {
+  left: 24px !important;
+  right: auto !important;
+  transform-origin: bottom left !important;
+}
+
+@media (max-width: 640px) {
+  .chat-launcher {
+    left: 14px !important;
+    right: auto !important;
+  }
+
+  .chat-panel {
+    left: 10px !important;
+    right: auto !important;
+  }
+}

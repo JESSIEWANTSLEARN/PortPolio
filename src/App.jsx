@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+﻿import { useEffect, useState } from 'react'
 import Intro from './components/Intro'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
@@ -12,6 +12,7 @@ import Education from './components/Education'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import Chatbot from './components/chatbot/Chatbot'
+import ChatbaseWidget from './integrations/chatbase/ChatbaseWidget'
 
 export default function App() {
   const [theme, setTheme] = useState(() => {
@@ -86,6 +87,7 @@ export default function App() {
 
       <Footer />
       <Chatbot />
+      <ChatbaseWidget />
     </>
   )
 }
